@@ -7,10 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * @author hamza.ahmed 11/09/19
- * Class for database connection and operations
- */
+
 public class DatabaseConn {
     Connection connection;
 
@@ -21,7 +18,7 @@ public class DatabaseConn {
      Driver manager for registering driver for specific database*/
     public void connect(String dbUrl,String userName,String password){
         try {
-//            DOMConfigurator.configure("log4j2.xml");
+            //DOMConfigurator.configure("log4j2.xml");
             connection= DriverManager.getConnection(dbUrl,userName,password);
             if(connection!=null){
                 logger.debug("Database Connection Successful");
@@ -41,22 +38,22 @@ public class DatabaseConn {
     public void insertRecord(){
 
         //sql statement for inserting record
-        String sql = "INSERT INTO employee (first_name, last_name, salary) VALUES (?, ?,?)";
+        String sql = "INSERT INTO abonent (first_name, last_name, number_phone) VALUES (?, ?,?)";
         //getting input from user
         Scanner input=new Scanner(System.in);
         System.out.println("Enter First name");
         String fName=input.nextLine();
         System.out.println("Enter Last name");
         String lName=input.nextLine();
-        System.out.println("Enter salary");
-        String salary=input.nextLine();
+        System.out.println("Enter Number phone");
+        String numberPhone=input.nextLine();
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             //setting parameter values
             statement.setString(1, fName);
             statement.setString(2, lName);
-            statement.setString(3, salary);
+            statement.setString(3, numberPhone);
             //executing query which will return an integer value
             int rowsInserted = statement.executeUpdate();
             //if rowInserted is greater then 0 mean rows are inserted
@@ -71,7 +68,7 @@ public class DatabaseConn {
 
     public void getAllRecords(){
         //sql statement for inserting record
-        String sql = "SELECT * FROM employee";
+        String sql = "SELECT * FROM abonent";
         //Creating a collection form employee list for storing all employee record
         ArrayList<Employee> employeeList=new ArrayList<Employee>();
 
@@ -88,7 +85,7 @@ public class DatabaseConn {
                 employee.setId(Integer.parseInt(result.getString(1)));
                 employee.setFirstName(result.getString(2));
                 employee.setLastName(result.getString(3));
-                employee.setSalary(Integer.parseInt(result.getString(4)));
+                employee.setNumberPhone(Integer.parseInt(result.getString(4)));
 
                 //adding employee in employee list
                 employeeList.add(employee);
@@ -107,14 +104,14 @@ public class DatabaseConn {
             System.out.println("Id: "+employees.get(i).getId());
             System.out.println("First Name: "+employees.get(i).getFirstName());
             System.out.println("Last Name: "+employees.get(i).getLastName());
-            System.out.println("Salary: "+employees.get(i).getSalary());
+            System.out.println("Number phone: "+employees.get(i).getNumberPhone());
 
         }
     }
 
     public void updateRecord(){
         //sql statement for inserting record
-        String sql = "UPDATE employee SET first_name=?, last_name=?, salary=? WHERE id=?";
+        String sql = "UPDATE abonent SET first_name=?, last_name=?, number=? WHERE id=?";
         //getting input from user
         Scanner input=new Scanner(System.in);
         System.out.println("Enter id of employee to update");
@@ -123,8 +120,8 @@ public class DatabaseConn {
         String fName=input.nextLine();
         System.out.println("Enter Last name");
         String lName=input.nextLine();
-        System.out.println("Enter salary");
-        String salary=input.nextLine();
+        System.out.println("Enter Number phone");
+        String numberPhone=input.nextLine();
 
         try {
             //creating and executing our statement
@@ -132,7 +129,7 @@ public class DatabaseConn {
             //setting parameter values
             statement.setString(1, fName);
             statement.setString(2, lName);
-            statement.setString(3, salary);
+            statement.setString(3, numberPhone);
             statement.setString(4, id);
 
             int rowsUpdated = statement.executeUpdate();
@@ -148,7 +145,7 @@ public class DatabaseConn {
 
     public void deleteRecord(){
         //sql statement for inserting record
-        String sql = "DELETE FROM employee WHERE id=?";
+        String sql = "DELETE FROM abonent WHERE id=?";
 
         //getting input from user
         Scanner input=new Scanner(System.in);

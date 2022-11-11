@@ -1,5 +1,4 @@
-[[32mINFO [m] 2019-09-11 20:11:41,850 Test.main() - elelelel
-[[1;31mERROR[m] 2019-09-11 20:11:41,858 Test.main() - elelelel
-[[36mDEBUG[m] 2019-09-11 20:11:42,314 DatabaseConn.connect() - Database Connection Successful
-[[32mINFO [m] 2019-09-11 20:11:42,314 DatabaseConn.connect() - Entering application.
-[[36mDEBUG[m] 2019-09-11 20:14:54,796 DatabaseConn.deleteRecord() - Employee not found
+[[36mDEBUG[m] 2022-11-11 19:33:45,519 DatabaseConn.connect() - Database Connection Successful
+[[32mINFO [m] 2022-11-11 19:33:45,530 DatabaseConn.connect() - Entering application.
+[[36mDEBUG[m] 2022-11-11 19:34:00,487 DatabaseConn.insertRecord() - A new user was inserted successfully!
+[[36mDEBUG[m] 2022-11-11 19:35:55,385 DatabaseConn.insertRecord() - A new user was inserted successfully!

@@ -1,12 +1,9 @@
-/**
- * @author hamza.ahmed 11/09/19
- * Class for creating Employee Model
- */
+
 public class Employee {
     private int id;
     private String firstName;
     private String lastName;
-    private int salary;
+    private int numberPhone;
 
     public void setId(int id) {
         this.id = id;
@@ -20,8 +17,8 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
+    public void setNumberPhone(int numberPhone) {
+        this.numberPhone = numberPhone;
     }
 
     public int getId() {
@@ -36,7 +33,7 @@ public class Employee {
         return lastName;
     }
 
-    public int getSalary() {
-        return salary;
+    public int getNumberPhone() {
+        return numberPhone;
     }
 }
